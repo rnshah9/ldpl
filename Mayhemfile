@@ -1,0 +1,5 @@
+project: rnshah9/ldpl
+target: ldpl
+
+cmds:
+  - cmd: /usr/src/myapp/build/ldpl @@
