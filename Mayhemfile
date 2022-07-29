@@ -2,4 +2,4 @@ project: ldpl
 target: ldpl
 
 cmds:
-  - cmd: /usr/src/myapp/build/ldpl @@
+  - cmd: /install/usr/local/bin/ldpl @@

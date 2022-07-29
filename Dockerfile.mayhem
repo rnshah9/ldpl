@@ -4,13 +4,8 @@ RUN apk add --no-cache make g++
 
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
+ENV DESTDIR=/install
 RUN make && make install
 
-RUN mkdir -p /deps
-RUN ldd /usr/src/myapp/build/ldpl | tr -s '[:blank:]' '\n' | grep '^/' | xargs -I % sh -c 'cp % /deps;'
-
 FROM alpine:latest as package
-
-COPY --from=builder /deps /deps
-COPY --from=builder /usr/src/myapp/build/ldpl /usr/src/myapp/build/ldpl
-ENV LD_LIBRARY_PATH=/deps
+COPY --from=builder /install /install
