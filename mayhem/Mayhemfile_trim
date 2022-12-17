@@ -1,0 +1,6 @@
+project: ldpl
+target: trim
+
+cmds:
+  - cmd: /fuzz_trim
+    libfuzzer: true
